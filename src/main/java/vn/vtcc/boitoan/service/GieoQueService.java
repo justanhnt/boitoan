@@ -14,9 +14,11 @@ public class GieoQueService {
 
     @Autowired
     QueRepository queRepository;
-
+    @Autowired
+    BocBaiService bocBaiService;
     public Que getQue() {
         int queId = RandomService.getRandomInt(64);
-        return queRepository.getQueById(1);
+        return queRepository.getQueById(queId);
     }
+
 }

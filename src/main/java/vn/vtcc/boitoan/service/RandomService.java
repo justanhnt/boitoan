@@ -9,7 +9,7 @@ public class RandomService {
     public static final Random RANDOMER = new Random();
 
     public static int getRandomInt(int maxNumber) {
-        return RANDOMER.nextInt(maxNumber);
+        return RANDOMER.nextInt(maxNumber) + 1;
     }
 
     public static int getRandomInt() {

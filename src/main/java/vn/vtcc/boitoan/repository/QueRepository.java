@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import vn.vtcc.boitoan.model.Bai;
 import vn.vtcc.boitoan.model.Que;
 
 /**
@@ -24,15 +25,21 @@ public class QueRepository {
             new QueRowMapper());
     }
 
+    public int insert(Que que){
+        return jdbcTemplate.update("insert into QUE_BOI (id, image_url, loi_giai, ten_que) " + "values(?, ?, ?, ?)",
+                new Object[] {
+                        que.getId(), que.getImageURL(), que.getLoiGiai(), que.getTenQue()
+                });
+    }
 
     class QueRowMapper implements RowMapper<Que> {
-
         @Override
         public Que mapRow(ResultSet resultSet, int i) throws SQLException {
             Que que = new Que();
             que.setId(resultSet.getInt("id"));
             que.setImageURL(resultSet.getString("image_url"));
             que.setLoiGiai(resultSet.getString("loi_giai"));
+            que.setTenQue(resultSet.getString("ten_que"));
             return que;
         }
     }
