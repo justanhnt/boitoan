@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import vn.vtcc.boitoan.model.Bai;
 import vn.vtcc.boitoan.model.CungHoangDao;
 import vn.vtcc.boitoan.model.Que;
@@ -25,7 +26,7 @@ import java.util.List;
  * Created by TuanAnh on 22/02/2018.
  */
 
-@Controller
+@RestController
 @RequestMapping(value = "/knowledge")
 public class GieoQueController {
 
@@ -36,25 +37,21 @@ public class GieoQueController {
     @Autowired
     private CungHoangDaoService cungHoangDaoService;
     @RequestMapping(path = "/boique", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     public Que getQue() {
         return gieoQueService.getQue();
     }
 
     @GetMapping("/bocbai")
-    @ResponseBody
     public Bai getBai() {
         return bocBaiService.getBai();
     }
 
     @GetMapping("/boicunghoangdao")
-    @ResponseBody
     public CungHoangDao getCungHoangDao(@RequestParam("ngay") String ngaySinh, @RequestParam("gioitinh") String gioiTinh) {
         return cungHoangDaoService.boiCungHoangDao(ngaySinh, gioiTinh);
     }
 
     @GetMapping("")
-    @ResponseBody
     public Info summary() {
         List<Path> paths = new ArrayList<>();
         //khai báo /boique
