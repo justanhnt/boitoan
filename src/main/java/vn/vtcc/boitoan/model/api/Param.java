@@ -1,4 +1,4 @@
-package vn.vtcc.boitoan.model.info_service;
+package vn.vtcc.boitoan.model.api;
 
 public class Param {
     private String param;

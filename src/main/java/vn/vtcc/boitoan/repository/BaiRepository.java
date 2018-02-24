@@ -21,11 +21,11 @@ public class BaiRepository {
                 },
                 new BaiRepository.BaiRowMapper());
     }
-    public int insert(Bai bai){
-        return jdbcTemplate.update("insert into boi_bai (id, image_url, loi_giai) " + "values(?, ?, ?)",
-                new Object[] {
-                        bai.getId(), bai.getImageURL(), bai.getResult()
-                });
+
+    public int insertNewBai(Bai bai){
+        return jdbcTemplate.update("insertNewQue into boi_bai (id, image_url, loi_giai) " + "values(?, ?, ?)",
+                bai.getId(), bai.getImageURL(), bai.getResult()
+                );
     }
 
     class BaiRowMapper implements RowMapper<Bai> {

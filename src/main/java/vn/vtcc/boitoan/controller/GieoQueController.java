@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import vn.vtcc.boitoan.model.Bai;
 import vn.vtcc.boitoan.model.CungHoangDao;
 import vn.vtcc.boitoan.model.Que;
-import vn.vtcc.boitoan.model.info_service.Data;
-import vn.vtcc.boitoan.model.info_service.Info;
-import vn.vtcc.boitoan.model.info_service.Param;
-import vn.vtcc.boitoan.model.info_service.Path;
+import vn.vtcc.boitoan.model.api.Data;
+import vn.vtcc.boitoan.model.api.Info;
+import vn.vtcc.boitoan.model.api.Param;
+import vn.vtcc.boitoan.model.api.Path;
 import vn.vtcc.boitoan.service.BocBaiService;
 import vn.vtcc.boitoan.service.CungHoangDaoService;
 import vn.vtcc.boitoan.service.GieoQueService;
@@ -44,7 +44,7 @@ public class GieoQueController {
     @GetMapping("/bocbai")
     @ResponseBody
     public Bai getBai() {
-        return bocBaiService.getQue();
+        return bocBaiService.getBai();
     }
 
     @GetMapping("/boicunghoangdao")

@@ -13,9 +13,8 @@ import vn.vtcc.boitoan.repository.QueRepository;
 public class GieoQueService {
 
     @Autowired
-    QueRepository queRepository;
-    @Autowired
-    BocBaiService bocBaiService;
+    private QueRepository queRepository;
+
     public Que getQue() {
         int queId = RandomService.getRandomInt(64);
         return queRepository.getQueById(queId);

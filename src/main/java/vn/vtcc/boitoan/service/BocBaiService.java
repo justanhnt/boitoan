@@ -15,7 +15,7 @@ public class BocBaiService {
     @Autowired
     BaiRepository baiRepository;
 
-    public Bai getQue() {
+    public Bai getBai() {
         int value = RandomService.getRandomInt(52);
         return baiRepository.getBaiById(value);
     }
